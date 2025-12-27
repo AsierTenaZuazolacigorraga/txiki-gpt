@@ -1,14 +1,19 @@
 # txiki-gpt
 
-A minimal GPT implementation for training and fine-tuning language models. This project provides a clean, demo implementation of the GPT architecture with support for training from scratch or fine-tuning pre-trained models.
+A minimal GPT implementation for training and fine-tuning language models. Inspired by [Andrej Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT), this project provides a clean, educational implementation of the GPT architecture focused on simplicity and clarity.
+
+## Overview
+
+txiki-gpt is a from-scratch implementation of the GPT (Generative Pre-trained Transformer) architecture, designed to be simple to understand and easy to experiment with. The entire model fits in a single file, making it perfect for learning how transformers work or quickly prototyping language model experiments.
 
 ## Features
 
-- **Full GPT implementation** in a single file (`model.py`) with Flash Attention support
-- **Character-level tokenization** for small datasets (e.g., Shakespeare)
-- **Training and inference scripts** with configurable hyperparameters
-- **Support for GPT-2 fine-tuning** via Hugging Face transformers
-- **Efficient training** with gradient accumulation, learning rate scheduling, and checkpointing
+- **Single-file GPT implementation** (`model.py`) with Flash Attention support for modern PyTorch 2.0+
+- **Character-level tokenization** for small datasets (perfect for the included Shakespeare corpus)
+- **Training from scratch** or **fine-tuning pre-trained GPT-2 models**
+- **Clean training loop** with gradient accumulation, cosine learning rate scheduling, and automatic checkpointing
+- **Simple configuration** via a single `config.py` file
+- **Fast inference** with temperature and top-k sampling
 
 ## Quick Start
 
@@ -38,7 +43,25 @@ Edit `config.py` to adjust:
 - Dataset and data paths
 - Inference parameters (temperature, top_k)
 
-## Reference
+## Project Structure
 
-This project is inspired by [Andrej Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT) - the simplest, fastest repository for training/finetuning medium-sized GPTs.
+```
+txiki-gpt/
+├── model.py          # Complete GPT implementation with Flash Attention
+├── train.py          # Training script with loss estimation and checkpointing
+├── inference.py      # Text generation script
+├── config.py         # All hyperparameters and settings
+└── data/            # Training datasets (Shakespeare included)
+```
+
+## Inspiration
+
+This project is directly inspired by [Andrej Karpathy's nanoGPT](https://github.com/karpathy/nanoGPT), the simplest and fastest repository for training/finetuning medium-sized GPTs. Like nanoGPT, txiki-gpt prioritizes:
+
+- **Hackability**: Clean, readable code that's easy to understand and modify
+- **Simplicity**: Minimal dependencies, everything you need in ~500 lines of code
+- **Educational value**: Perfect for learning how GPT models actually work
+- **Speed**: Efficient implementation using modern PyTorch features
+
+The name "txiki" means "small" in Basque, reflecting the project's minimalist philosophy.
 
